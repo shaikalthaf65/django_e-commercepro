@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="cart-box">
+    <h2>Your Cart</h2>
+
+    {% for item in cart_products %}
+    <div class="cart-item">
+
+        <div class="img-box">
+            <img src="{{ item.image.url }}" class="cart-img">
+        </div>
+
+        <div class="item-info">
+            <h4>{{ item.name }}</h4>
+            <p>₹{{ item.price }}</p>
+
+            <div class="qty-box">
+                <a href="{% url 'decrease_qty' item.id %}">
+                    <button class="qty-btn">-</button>
+                </a>
+
+                <span class="qty">{{ item.qty }}</span>
+
+                <a href="{% url 'increase_qty' item.id %}">
+                    <button class="qty-btn">+</button>
+                </a>
+            </div>
+
+            <p>Subtotal: ₹{{ item.subtotal }}</p>
+
+            <!-- REMOVE BUTTON (inside loop) -->
+            <a href="{% url 'remove_item' item.id %}">
+                <button class="remove-btn">Remove</button>
+            </a>
+
+        </div>
+
+    </div>
+    <hr>
+    {% endfor %}
+
+    <div class="total-box">
+        Total: ₹{{ total }}
+    </div>
+
+    <a href="{% url 'payment' %}">
+        <button class="buy-btn">Buy</button>
+    </a>
+
+</div>
+
+{% endblock %}

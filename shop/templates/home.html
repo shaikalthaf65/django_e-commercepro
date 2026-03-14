@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALOO | Home</title>
+
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="{% static 'images/Logo Design_ ALOO in Gold.png' %}" alt="logo">
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+
+    </nav>
+
+    <section class="main">
+
+        <img src="{% static 'images/Logo Design_ ALOO in Gold.png' %}" alt="logo">
+
+        <h1>Welcome to ALOO</h1>
+
+        <p>
+        ALOO is your one-stop destination for premium shopping.
+        Discover quality products, amazing deals, and a smooth shopping experience.
+        </p>
+
+    </section>
+
+</div>
+
+</body>
+</html>

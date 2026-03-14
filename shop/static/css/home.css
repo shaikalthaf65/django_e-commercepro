@@ -1,0 +1,74 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#dfe5eb;
+display:flex;
+justify-content:center;
+padding:20px;
+}
+
+/* main card */
+
+.container{
+background:#efe1c2;
+width:100%;
+max-width:400px;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* navbar */
+
+.navbar{
+background:#e8cfa6;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 20px;
+}
+
+/* logo */
+
+.logo img{
+width:45px;
+}
+
+/* nav links */
+
+.nav-links{
+display:flex;
+gap:20px;
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+color:black;
+font-weight:600;
+}
+
+/* main section */
+
+.main{
+text-align:center;
+padding:40px 20px;
+}
+
+.main img{
+width:120px;
+margin-bottom:20px;
+}
+
+.main h1{
+margin-bottom:15px;
+}
+
+.main p{
+line-height:1.6;
+}

@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* PAGE CENTER ALIGN */
+body {
+    height: 100vh;
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTAINER */
+.container {
+    text-align: center;
+}
+
+/* LOGO */
+.container img {
+    height: 280px;
+    width: 280px;
+    border-radius: 12%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* HOVER EFFECT */
+.container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* TEXT */
+.container h2 {
+    margin-top: 20px;
+    font-size: 32px;
+    color: #333;
+}
+
+.container p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #666;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALOO | Landing</title>
+
+    <link rel="stylesheet" href="{% static 'css/land.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Clickable Logo -->
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/Logo Design_ ALOO in Gold.png' %}" alt="ALOO Logo">
+        </a>
+
+        <h2>Welcome to ALOO</h2>
+        <p>Your premium e-commerce destination</p>
+    </div>
+
+</body>
+</html>

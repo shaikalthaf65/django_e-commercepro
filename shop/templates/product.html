@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/product.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- 🔍 Search Bar -->
+
+<div style="text-align:center;margin:20px;">
+
+    <form method="GET">
+
+        <input type="text"
+               name="search"
+               placeholder="Search product..."
+               value="{{ query|default:'' }}"
+               style="padding:8px;width:250px;">
+
+        <button type="submit" style="padding:8px 15px;">
+            Search
+        </button>
+
+    </form>
+
+</div>
+
+
+<div class="product-container">
+
+{% if products %}
+
+{% for p in products %}
+<div class="product-card">
+
+    <img src="{{ p.image.url }}" alt="{{ p.name }}">
+
+    <h3>{{ p.name }}</h3>
+
+    <p class="price">₹{{ p.price }}</p>
+
+    <!-- Add to Cart -->
+    <a href="{% url 'add_to_cart' p.id %}">
+        <button class="add-btn">Add</button>
+    </a>
+
+    <!-- Rating Section -->
+    <div class="rating-box">
+
+        <!-- Average Rating -->
+        <div class="avg-rating">
+            ⭐ {{ p.avg_rating|default:"0" }} / 5
+            ({{ p.total_ratings|default:"0" }} reviews)
+        </div>
+
+        <!-- Rate Product -->
+        <form method="POST" action="{% url 'add_rating' p.id %}">
+            {% csrf_token %}
+
+            <div class="stars">
+                <button name="stars" value="5">⭐</button>
+                <button name="stars" value="4">⭐</button>
+                <button name="stars" value="3">⭐</button>
+                <button name="stars" value="2">⭐</button>
+                <button name="stars" value="1">⭐</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+{% endfor %}
+
+{% else %}
+
+<div style="text-align:center;margin-top:40px;">
+    <h2>No Data Found</h2>
+</div>
+
+{% endif %}
+
+</div>
+
+{% endblock %}

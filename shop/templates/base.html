@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Shop</title>
+
+    <!-- BASE CSS -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    {% block css %}{% endblock %}
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <!-- LEFT: LOGO -->
+    <div class="nav-left">
+        <img src="{% static 'images/Logo Design_ ALOO in Gold.png' %}" class="logo"  alt="ALOO Logo">
+        <span class="brand">My Shop</span>
+    </div>
+
+    <!-- RIGHT: CART + LOGOUT -->
+    <div class="nav-right">
+        <a href="{% url 'cart' %}" class="cart-link">
+            🛒 Cart ({{ cart_count|default:0 }})
+        </a>
+
+        <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+
+
+    </div>
+</nav>
+
+<!-- PAGE CONTENT -->
+{% block content %}{% endblock %}
+
+</body>
+</html>

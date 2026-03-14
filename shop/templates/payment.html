@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/payment.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="payment-box">
+
+    <h2>Payment</h2>
+
+    <div class="payment-items">
+        {% for item in cart_products %}
+        <div class="pay-item">
+
+            <img src="{{ item.image.url }}" class="pay-img">
+
+            <div class="pay-info">
+                <p class="p-name">{{ item.name }}</p>
+                <p class="p-price">₹{{ item.subtotal }}</p>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+    <h3>Total: ₹{{ total }}</h3>
+
+    <hr>
+
+    <form method="POST" action="{% url 'pay' %}">
+        {% csrf_token %}
+
+        <label>
+            <input type="radio" name="payment_method" value="gpay" required>
+            Google Pay
+        </label><br>
+
+        <label>
+            <input type="radio" name="payment_method" value="phonepe">
+            PhonePe
+        </label><br>
+
+        <label>
+            <input type="radio" name="payment_method" value="card">
+            Card
+        </label><br>
+
+        <label>
+            <input type="radio" name="payment_method" value="cod">
+            Cash on Delivery
+        </label><br><br>
+
+        <button type="submit" class="pay-btn">Pay Now</button>
+
+    </form>
+
+</div>
+
+{% endblock %}
